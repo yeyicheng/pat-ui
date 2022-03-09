@@ -76,7 +76,7 @@ const Pagination: React.FC<PaginationProps> = (props: PaginationProps) => {
                 } else if (p === currentPage) {
                         return <div className={`pagination__icons__btn-icon 
                         ${getSizeClass(size)} ${getShapeClass(shape)} ${getColorClass(color)}`}>{p}</div>
-                    } else if (p === '.') {
+                    } else if (p === '...') {
                         return <div className={`pagination__icons__btn-icon`}>{p}</div>
                     } else {
                     return <button disabled={disabled} onClick={_=>updateCurrentPage(p)}
