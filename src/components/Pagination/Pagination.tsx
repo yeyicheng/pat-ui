@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import {
   ColorType,
@@ -65,7 +65,7 @@ export interface PaginationPropsExtended {
   onChangePage?: (currentPage: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = (props) => {
+const Pagination: FC<PaginationProps> = (props) => {
   const {
     count,
     currentPage,
