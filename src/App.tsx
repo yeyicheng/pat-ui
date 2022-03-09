@@ -1,6 +1,6 @@
-import React from "react";
-import {Pagination} from "./components/Pagination";
-import {PageFunc} from "./utils/hooks/usePagination";
+import React from 'react';
+import {Pagination} from './components/Pagination';
+import {PageFunc} from './utils/hooks/usePagination';
 
 export default function App() {
     const handleOnChange: PageFunc = (currentPage) => {

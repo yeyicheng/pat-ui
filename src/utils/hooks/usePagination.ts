@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactDOM, useState } from 'react';
 
 export type ColorType = 'primary' | 'secondary';
 
@@ -53,9 +53,9 @@ export const usePagination = (props: PaginationProps) => {
   let itemTypes: ItemType[] = [];
   for (let i = 1; i <= count; i++) {
     if (
-        i <= siblingCount ||
-        (i >= currentPage - siblingCount && i <= currentPage + siblingCount) ||
-        i > count - siblingCount
+      i <= siblingCount ||
+      (i >= currentPage - siblingCount && i <= currentPage + siblingCount) ||
+      i > count - siblingCount
     ) {
       itemTypes[i] = 'page';
     } else {
