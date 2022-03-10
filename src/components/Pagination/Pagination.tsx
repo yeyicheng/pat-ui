@@ -98,20 +98,17 @@ const Pagination: FC<PaginationProps> = (props) => {
         </button>
       </div>
       <div className={'pagination__icons'}>
-        {itemTypes
-          .map((n, i) => {
-            if (n === 'eclipsed') {
-              eclipsed += 1;
-              return eclipsed > 1 ? '' : '...';
-            } else {
-              eclipsed = 0;
-              return i;
-            }
-          })
-          .map((p, i) => {
-            if (p === '') {
-              return <></>;
-            } else if (p === currentPage) {
+        {itemTypes.map((n, i) => {
+          if (n === 'eclipsed') {
+            eclipsed += 1;
+            return eclipsed > 1 ? (
+              <></>
+            ) : (
+              <div className={`${getDisabledClass(disabled)}`}>{'...'}</div>
+            );
+          } else {
+            eclipsed = 0;
+            if (+i === +currentPage) {
               return (
                 <div
                   className={`${getBasicIconClass()} 
@@ -121,27 +118,26 @@ const Pagination: FC<PaginationProps> = (props) => {
                     disabled
                   )} ${getColorFocusedClass()}`}
                 >
-                  {p}
+                  {i}
                 </div>
               );
-            } else if (p === '...') {
-              return <div className={`${getDisabledClass(disabled)}`}>{p}</div>;
             } else {
               return (
                 <button
                   disabled={disabled}
-                  onClick={(_) => updateCurrentPage(p)}
+                  onClick={(_) => updateCurrentPage(+i)}
                   className={`${getBasicIconClass()} ${getSizeClass(
                     size
                   )} ${getShapeClass(shape)} ${getColorClass(
                     color
                   )} ${getDisabledClass(disabled)}`}
                 >
-                  <div>{p}</div>
+                  <div>{i}</div>
                 </button>
               );
             }
-          })}
+          }
+        })}
       </div>
       <div>
         <button
